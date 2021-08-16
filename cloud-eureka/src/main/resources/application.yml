@@ -1,0 +1,50 @@
+#单节点
+#应用名称及验证账号
+#server:
+#  port: 7900
+spring:
+  application:
+    name: eureka
+#security:
+#  user:
+#    name: root
+#    password: root
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:7900/eureka/,http://localhost:7901/eureka/,http://localhost:7902/eureka/
+
+---
+spring:
+  profiles:
+    active: 7900
+eureka:
+  instance:
+    hostname: eureka-7900
+server:
+  port: 7900
+
+---
+spring:
+  profiles:
+    active: 7901
+eureka:
+  instance:
+    hostname: eureka-7901
+server:
+  port: 7901
+
+
+---
+spring:
+  profiles:
+    active: 7902
+eureka:
+  instance:
+    hostname: eureka-7902
+server:
+  port: 7902
+
+
